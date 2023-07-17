@@ -1,0 +1,133 @@
+body{
+    background-color: rgb(2, 2, 20);
+    overflow: scroll;
+}
+#warpper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#banner{
+    margin-top: 10px;
+    color:rgb(212, 101, 61);
+    /* color:  orangered;    */
+}
+#banner h1{
+    letter-spacing: 3px;
+    font-size: 50px;
+    font-weight: 900;
+}
+#container {
+    margin-top: 10px;
+    background-color: rgb(33, 33, 36);
+    padding: 20px 20px;
+
+}
+
+/* HEARDER */
+#input {
+    min-width: 400px;
+    margin-right: 10px;
+    padding: 10px 10px;
+    background-color: rgb(33, 33, 36);
+    color: #fff;
+    border: none;
+    border-bottom: solid 1px rgb(216, 124, 90);
+}
+
+#input::placeholder {
+    color: rgb(216, 124, 90);
+    opacity: 1;
+}
+
+#button {
+    min-width: 110px;
+    padding: 10px;
+    background-color: orangered;
+    cursor: pointer;
+    border: none;
+    border-bottom: solid 1.6px orangered;
+}
+
+#button:hover {
+    background-color: rgb(234, 1, 1);
+    border-bottom: solid 1.6px rgb(234, 1, 1);
+
+}
+
+/* CONTENT */
+#list {
+    list-style: none;
+    padding-left: 0px;
+    
+}
+
+#list .list-item {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    max-width: 400px;
+
+}
+
+.list-item .main-work {
+    flex-grow: 1;
+    overflow-x: scroll;
+
+}
+.list-item .main-work:hover{
+    color: rgb(216, 124, 90);
+}
+
+
+.list-item i {
+    font-size: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+.list-item i:hover{
+    color: rgb(234, 1, 1); ;
+}
+
+/* FOOTER */
+footer p{
+    color: #a29696;
+    font-size: 14px;
+    margin: 20px 0 0 0;
+}
+
+ /* large devives (desktops,  less than 1200px) */
+ @media(max-width:1199.89px){
+            
+ }
+     /* medium devives (desktops, less than  992px) */
+  @media(max-width:991.98px){
+     
+ }
+     /* small devives (desktops, less than  768px) */
+  @media(max-width:767.98px){
+    /* #input {
+        min-width: 200px;
+    } */
+ }
+     /* extral small devives (desktops,  less than 576 px) */
+  @media(max-width:575.98px){
+    #list .list-item {
+        
+        max-width: 250px;
+    
+    }
+    
+    #input {
+        min-width: 250px;
+        margin-bottom: 10px;
+    }
+    
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+ }
