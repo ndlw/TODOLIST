@@ -69,14 +69,14 @@ body{
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    max-width: 400px;
+
 
 }
 
 .list-item .main-work {
     flex-grow: 1;
-    overflow-x: scroll;
-
+    max-width: 487px;
+    overflow: hidden;
 }
 .list-item .main-work:hover{
     color: rgb(216, 124, 90);

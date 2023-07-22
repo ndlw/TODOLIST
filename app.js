@@ -3,11 +3,7 @@ const input = document.getElementById('input')
 const button = document.getElementById('button')
 const list = document.getElementById('list')
 const announce = document.getElementById('announce')
-// var numComplete = 0
-var noteList = JSON.parse(localStorage.getItem('noteList'))
-if (noteList === null) {
-    noteList = []
-}
+var noteList = null ? [] : JSON.parse(localStorage.getItem('noteList'))
 // render khi mở trang và reload lại trang
 render()
 
@@ -44,11 +40,12 @@ button.addEventListener('click', (e) => {
     }
 
 })
-//HÀM SAVE DATE VÀO LOCALSTORAGE
+//HÀM SAVE DATA VÀO LOCALSTORAGE
 function save() {
     localStorage.setItem('noteList', JSON.stringify(noteList))
 
 }
+
 //HÀM RENDER
 function render() {
     button.innerText = 'CREAT TASK'
@@ -56,12 +53,7 @@ function render() {
     input.value = ""
     var renderHTML = noteList.map((noteItem, index) => {
 
-        // if (noteItem.complete) {
-        //     numComplete++
-        // }
-        // console.log(numComplete)
-
-        return `<li class="list-item" id="list-item-${noteItem.id}">
+        return `<li class="list-item isComplete" id="list-item-${noteItem.id}">
                 <p class="main-work" id="main-work-${noteItem.id}" onclick = "doneNote('${index}')" style="text-decoration: ${noteItem.textDecoration}; color: ${noteItem.color};"> ${noteItem.note}</p>
                 <i class="fa-solid fa-pen-to-square" onclick = "editNote('${index}')"></i>
                <i class="fa-solid fa-trash" onclick = "removeNote('${index}')"></i>
@@ -69,7 +61,7 @@ function render() {
             <hr>`
     })
 
-    list.innerHTML = renderHTML
+    list.innerHTML = renderHTML.join('')
     counter()
 
 }
@@ -123,6 +115,10 @@ function doneNote(index) {
 // HÀM ĐẾM SỐ CÔNG VIỆC HOÀN THÀNH
 function counter() {
     var numComplete = 0
+    if (Array.isArray(noteList) && noteList.length === 0) {
+        announce.innerText = 'You do not have any task'
+    }
+    
     noteList.map((noteItem, index) => {
         if (noteItem.complete) {
             numComplete++
@@ -131,4 +127,5 @@ function counter() {
         localStorage.setItem('numComplete', numComplete)
         announce.innerText = `${localStorage.getItem('numComplete')} / ${index + 1} task completed !`
     })
+
 }
